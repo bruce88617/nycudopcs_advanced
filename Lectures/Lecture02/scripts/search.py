@@ -1,27 +1,44 @@
 """Search Algorithms for Lecture 02"""
 
 
-def DFS(graph, start, end, path, shortest, toPrint=False):
+def DFS(graph, start, end, path, toPrint=False, foundPath=[]):
     path = path + [start]
     
     if toPrint:
         print("Current DFS path:", printPath(path))
-
+    
     if start == end:
-        return path
+        return foundPath.append(printPath(path))
     
     for node in graph.childrenOf(start):
-        # avoid cycles
-        if node not in path: 
-            
-            if shortest == None or len(path) < len(shortest):
-                newPath = DFS(graph, node, end, path, shortest, toPrint)
-                
-                if newPath != None:
-                    shortest = newPath
-                    # print("Current shortest path:", printPath(shortest))
+        if node not in path:
+            DFS(graph, node, end, path, toPrint, foundPath=foundPath)
     
-    return shortest
+    return foundPath
+
+
+def BFS(graph, start, end, toPrint=False):
+    initPath = [start]
+    pathQueue = [initPath]
+    foundPath = []
+
+    while len(pathQueue) != 0:
+        tmpPath = pathQueue.pop(0)
+        lastNode = tmpPath[-1]
+
+        if toPrint:
+            print("Current BFS path:", printPath(tmpPath))
+
+        if lastNode == end:
+            foundPath.append(printPath(tmpPath))
+        
+        for nextNode in graph.childrenOf(lastNode):
+            
+            if nextNode not in tmpPath:
+                newPath = tmpPath + [nextNode]
+                pathQueue.append(newPath)
+            
+    return foundPath
 
 
 def printPath(path):

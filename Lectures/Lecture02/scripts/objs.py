@@ -2,11 +2,15 @@
 
 
 class Node:
-    def __init__(self, name):
+    def __init__(self, name, wait=0):
         self.name = name
+        self.costTime = wait
     
     def getName(self):
         return self.name
+    
+    def getCost(self):
+        return self.costTime
     
     def __str__(self):
         return self.name
@@ -60,6 +64,11 @@ class Digraph:
     
     def hasNode(self, node):
         return node in self.nodes
+    
+    def getNode(self, node_idx):
+        if not self.nodes[node_idx] in self.nodes:
+            raise ValueError("Node is not in graph, idiot")
+        return self.nodes[node_idx]
     
     def __str__(self):
         result = ""
