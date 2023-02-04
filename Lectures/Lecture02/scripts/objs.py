@@ -1,6 +1,5 @@
 """Objects for Lecture 02"""
 
-
 class Node:
     def __init__(self, name, wait=0):
         self.name = name
@@ -30,8 +29,8 @@ class Edge:
         return "{} -> {}".format(self.src, self.dest)
 
 class WeightedEdge(Edge):
-    def __init__(self, src, dest, weight=1.):
-        super(self, Edge).__init__(src, dest)
+    def __init__(self, src, dest, weight=1):
+        super(WeightedEdge, self).__init__(src, dest)
         self.weight = weight
     
     def getWeight(self):
@@ -44,6 +43,7 @@ class Digraph:
     def __init__(self):
         self.nodes = []
         self.edges = {}
+        self.weights = {}
     
     def addNode(self, node):
         if node in self.nodes:
@@ -51,6 +51,7 @@ class Digraph:
         else:
             self.nodes.append(node)
             self.edges[node] = []
+            self.weights[node] = {}
     
     def addEdge(self, edge):
         src = edge.getSource()
@@ -58,6 +59,11 @@ class Digraph:
         if not (src in self.nodes and dest in self.nodes):
             raise ValueError("Node is not in graph, idiot")
         self.edges[src].append(dest)
+        if edge.__class__.__name__ == "WeightedEdge":
+            wt = edge.getWeight()
+            self.weights[src][dest] = wt
+        else:
+            self.weights[src][dest] = 1
     
     def childrenOf(self, node):
         return self.edges[node]
@@ -69,6 +75,9 @@ class Digraph:
         if not self.nodes[node_idx] in self.nodes:
             raise ValueError("Node is not in graph, idiot")
         return self.nodes[node_idx]
+
+    def getWeight(self, src, dest):
+        return self.weights[src][dest]
     
     def __str__(self):
         result = ""

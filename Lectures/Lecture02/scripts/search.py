@@ -1,5 +1,6 @@
 """Search Algorithms for Lecture 02"""
 
+from .utils import printPath
 
 def DFS(graph, start, end, path, toPrint=False, foundPath=[]):
     path = path + [start]
@@ -8,7 +9,7 @@ def DFS(graph, start, end, path, toPrint=False, foundPath=[]):
         print("Current DFS path:", printPath(path))
     
     if start == end:
-        return foundPath.append(printPath(path))
+        return foundPath.append(path)
     
     for node in graph.childrenOf(start):
         if node not in path:
@@ -30,7 +31,7 @@ def BFS(graph, start, end, toPrint=False):
             print("Current BFS path:", printPath(tmpPath))
 
         if lastNode == end:
-            foundPath.append(printPath(tmpPath))
+            foundPath.append(tmpPath)
         
         for nextNode in graph.childrenOf(lastNode):
             
@@ -41,13 +42,7 @@ def BFS(graph, start, end, toPrint=False):
     return foundPath
 
 
-def printPath(path):
-    result = ""
-    for i in range(len(path)):
-        result += str(path[i])
-        if i != len(path)-1:
-            result += "->"
-    return result
+
 
 
 
