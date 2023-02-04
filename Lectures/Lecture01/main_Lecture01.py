@@ -15,15 +15,15 @@ if __name__ == "__main__":
 
     if opt.idx == 1:
         print("Run Test #{}".format(opt.idx))
-        test1(availWeight==opt.avail)
+        test1(availWeight=opt.avail)
     
     elif opt.idx == 2:
         print("Run Test #{}".format(opt.idx))
-        test2(availWeight==opt.avail)
+        test2(availWeight=opt.avail)
 
     elif opt.idx == 3:
         print("Run Test #{}".format(opt.idx))
-        test3(availWeight==opt.avail, numItems=opt.num, mavVal=opt.maxVal, maxWeight=opt.maxWt)
+        test3(availWeight=opt.avail, numItems=opt.num, mavVal=opt.maxVal, maxWeight=opt.maxWt)
 
     elif opt.idx == 4:
         print("Run Test #{}".format(opt.idx))
