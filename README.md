@@ -21,7 +21,9 @@ root
   ├─ Lectures                         # Folder for the handouts and assets of this course
   |      ├─ Lecture01
   |      |     ├─ assets              # Images in the handouts
+  |      |     ├─ scripts             # Scripts in the handouts
   |      |     └─ Lecture01.ipynb     # Lecture 01: Knapsack Problems and Dynamic Programming
+  |      |
   |      ├─ Lecture02
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
