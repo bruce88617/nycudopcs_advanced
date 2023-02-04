@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     elif opt.idx == 3:
         print("Run Test #{}".format(opt.idx))
-        test3(availWeight=opt.avail, numItems=opt.num, mavVal=opt.maxVal, maxWeight=opt.maxWt)
+        test3(availWeight=opt.avail, numItems=opt.num, maxVal=opt.maxVal, maxWeight=opt.maxWt)
 
     elif opt.idx == 4:
         print("Run Test #{}".format(opt.idx))
@@ -31,11 +31,11 @@ if __name__ == "__main__":
 
     elif opt.idx == 5:
         print("Run Test #{}".format(opt.idx))
-        testDT2(availWeight=opt.avail, numItems=opt.num, mavVal=opt.maxVal, maxWeight=opt.maxWt)
+        testDT2(availWeight=opt.avail, numItems=opt.num, maxVal=opt.maxVal, maxWeight=opt.maxWt)
 
     elif opt.idx == 6:
         print("Run Test #{}".format(opt.idx))
-        testDT3(availWeight=opt.avail, numItems=opt.num, mavVal=opt.maxVal, maxWeight=opt.maxWt)
+        testDT3(availWeight=opt.avail, numItems=opt.num, maxVal=opt.maxVal, maxWeight=opt.maxWt)
 
     else:
         raise ValueError("num should be 1, 2, 3, 4, 5, or 6.")
