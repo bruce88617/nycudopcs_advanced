@@ -21,7 +21,13 @@ root
   ├─ Lectures                         # Folder for the handouts and assets of this course
   |      ├─ Lecture01
   |      |     ├─ assets              # Images in the handouts
-  |      |     └─ Lecture1.ipynb      # Lecture 1: Introduction to Computation and Programming
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     └─ Lecture01.ipynb     # Lecture 01: Knapsack Problems and Dynamic Programming
+  |      |
+  |      ├─ Lecture02
+  |      |     ├─ assets              # Images in the handouts
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     └─ Lecture02.ipynb     # Lecture 02: Graph Theory and Graph Optimization Problems
   | 
   ├─ Cooooooooooooooooming soon
   | 
