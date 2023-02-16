@@ -22,12 +22,21 @@ root
   |      ├─ Lecture01
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture01.py   # Main script of Lecture 01
   |      |     └─ Lecture01.ipynb     # Lecture 01: Knapsack Problems and Dynamic Programming
   |      |
   |      ├─ Lecture02
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture02.py   # Main script of Lecture 02
   |      |     └─ Lecture02.ipynb     # Lecture 02: Graph Theory and Graph Optimization Problems
+  |      |
+  |      ├─ Lecture03
+  |      |     ├─ assets              # Images in the handouts
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture03.py   # Main script of Lecture 03
+  |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Data Visualization
+  |      |
   | 
   ├─ Cooooooooooooooooming soon
   | 
