@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def pickStudent(num=3, path="1111-515412.csv"):
+def pickStudent(num=3, path="1112-515412.csv"):
     df = pd.read_csv(path)
 
     nameList1 = list(df['Unnamed: 2'])[4:35]
