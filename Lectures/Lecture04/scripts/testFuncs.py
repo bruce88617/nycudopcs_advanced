@@ -1,7 +1,7 @@
 """Testing Functions for Lecture 04"""
 
 from .utils import rollSim, flipSim, flip, makePlot, labelPlot
-from .basicFuncs import stdDev, CV, gaussDist
+from .basicFuncs import stdDev, CV, gaussDist, binCoeff
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -215,5 +215,50 @@ def test8(x=None, mu=0, sigma=1, N=100):
     ax.set_title("Normal Distribution, Mean = {} and STD = {}".format(mu, sigma))
 
     plt.show()
+
+
+def test9(minExp=3, maxExp=10, numTrials=100):
+    means, stds, xVals = [], [], []
+
+    for exp in range(minExp, maxExp+1):
+        xVals.append(2**exp)
+        _, mean, std = flipSim(2**exp, numTrials)
+        means.append(mean)
+        stds.append(std)
+
+    fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained")
+    ax1 = fig.add_subplot(111)
+    ax1.errorbar(xVals, means, yerr=1.96*np.array(stds))
+    ax1.set_xscale("log")
+    ax1.set_xlabel("Number of flips per trial")
+    ax1.set_ylabel("Fraction of heads & 95% confidence")
+    ax1.set_title("Mean Fraction of Heads ({})".format(numTrials))
+    
+    plt.show()
+
+
+def test10(minExp=2, maxExp=100, p=1/6, times=2):
+    xVals, results = [], []
+    for i in range(minExp, maxExp+1):
+        prob = binCoeff(i, times) * (p)**times * (1-p)**(i-times)
+        xVals.append(i)
+        results.append(prob)
+    
+    fig = plt.figure(dpi=100, layout="constrained")
+    ax = fig.add_subplot(111)
+    ax.plot(xVals, results)
+    ax.set_title("Probability of Rolling Two 3's")
+    ax.set_xlabel("Number of rolls")
+    ax.set_ylabel("Probability")
+    ax.set_xlim(xVals[0], xVals[-1])
+    ax.set_ylim(0, np.max(results)*1.1)
+
+    plt.show()
+
+
+
+
+
+
 
 

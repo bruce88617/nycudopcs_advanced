@@ -1,6 +1,6 @@
 """Tests of Lecture 04"""
 
-from scripts.testFuncs import test1, test2, test3, test4, test5, test6, test7, test8
+from scripts.testFuncs import test1, test2, test3, test4, test5, test6, test7, test8, test9, test10
 import argparse
 
 if __name__ == "__main__":
@@ -41,6 +41,14 @@ if __name__ == "__main__":
         # print("Run Test #{}".format(opt.num))
         test8()
 
+    elif opt.num == 9:
+        # print("Run Test #{}".format(opt.num))
+        test9()
+
+    elif opt.num == 10:
+        # print("Run Test #{}".format(opt.num))
+        test10()
+
     else:
-        raise ValueError("num should be 1, 2, 3, 4, or 5.")
+        raise ValueError("Test # does not exist.")
 

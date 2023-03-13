@@ -28,4 +28,14 @@ def gaussDist(x=None, mu=0, sigma=1, N=100):
     return coeff*np.exp(-((x-mu)**2)/(2*sigma**2))
 
 
+def factI(n):
+    output = 1
+    for i in range(n):
+        output *= i+1
+    return output
+
+
+def binCoeff(n, k):
+    return factI(n)/(factI(k)*factI(n-k))
+
 
