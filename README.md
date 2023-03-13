@@ -37,6 +37,12 @@ root
   |      |     ├─ main_Lecture03.py   # Main script of Lecture 03
   |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Data Visualization
   |      |
+  |      ├─ Lecture04
+  |      |     ├─ assets              # Images in the handouts
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture04.py   # Main script of Lecture 04
+  |      |     └─ Lecture04.ipynb     # Lecture 04: Stochastic Programs, Probability, and Distributions
+  |      |
   | 
   ├─ Cooooooooooooooooming soon
   | 
