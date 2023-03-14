@@ -23,7 +23,7 @@ def flipCoin():
 def flip(numFlips):
     numHeads = 0
     for i in range(numFlips):
-        if random.choice(("H", "T")) == "H":
+        if flipCoin() == "H":
             numHeads += 1
     numTails = numFlips - numHeads
     return (numHeads, numTails)
