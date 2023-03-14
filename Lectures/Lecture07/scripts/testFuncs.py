@@ -1,4 +1,4 @@
-"""Testing Functions for Lecture 04"""
+"""Testing Functions for Lecture 07"""
 
 from .utils import rollSim, flipSim, flip, makePlot, labelPlot
 from .basicFuncs import stdDev, CV, gaussDist, binCoeff

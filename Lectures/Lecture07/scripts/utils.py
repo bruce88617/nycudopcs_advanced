@@ -1,4 +1,4 @@
-"""Utility Functions for Lecture 04"""
+"""Utility Functions for Lecture 07"""
 
 import random
 from .basicFuncs import stdDev

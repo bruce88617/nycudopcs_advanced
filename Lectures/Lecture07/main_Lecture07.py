@@ -1,10 +1,10 @@
-"""Tests of Lecture 04"""
+"""Tests of Lecture 07"""
 
 from scripts.testFuncs import test1, test2, test3, test4, test5, test6, test7, test8, test9, test10
 import argparse
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Lecture 04")
+    parser = argparse.ArgumentParser(description="Lecture 07")
     parser.add_argument("--num", default=1, type=int, help="Return which test? (default: 1)")
 
     opt = parser.parse_args()

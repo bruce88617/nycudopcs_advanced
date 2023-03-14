@@ -1,4 +1,4 @@
-"""Basic Functions for Lecture 04"""
+"""Basic Functions for Lecture 07"""
 
 import numpy as np
 
