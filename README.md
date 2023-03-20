@@ -13,6 +13,12 @@
 
 **All link in the lectures is optimized for reading in VS Code, not for GitHub.**
 
+## How to update your local repository
+
+```
+cd {path_to_your_repo}/nycudopcs_advanced
+git checkout origin/main -- path/to/file
+```
 
 ## Structures
 
