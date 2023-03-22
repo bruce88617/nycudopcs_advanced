@@ -44,6 +44,12 @@ root
   |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Data Visualization
   |      |
   |      ├─ Lecture04
+  |      |     ├─ 1_Tien_chapter14.01-Basics-of-Linear-Algebra.ipynb
+  |      |     ├─ 2_Tien_chapter14.02-Linear-Transformations.ipynb
+  |      |     ├─ 3_Tien_chapter14.03-Systems-of-Linear-Equations.ipynb
+  |      |     ├─ 4_Tien_chapter14.04(1)-Solutions-to-Systems-of-Linear-Equations.ipynb
+  |      |     ├─ 5_Tien_chapter14.04(2)-Solutions-to-Systems-of-Linear-Equations.ipynb
+  |      |     └─ 6_Tien_chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.ipynb
   |      |
   |      ├─ Lecture05
   |      |
