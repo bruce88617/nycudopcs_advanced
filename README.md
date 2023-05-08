@@ -52,8 +52,18 @@ root
   |      |     └─ 6_Tien_chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.ipynb
   |      |
   |      ├─ Lecture05
+  |      |     ├─ Tien_chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.ipynb
+  |      |     ├─ Tien_chapter15.02-The-Power-Method.ipynb
+  |      |     ├─ Tien_chapter15.03-The-QR-Method.ipynb
+  |      |     └─ Tien_chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.ipynb
   |      |
   |      ├─ Lecture06
+  |      |     ├─ Tien_chapter16.00-Least-Squares-Regression.ipynb
+  |      |     ├─ Tien_chapter16.01-Least-Squares-Regression-Problem-Statement.ipynb
+  |      |     ├─ Tien_chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb
+  |      |     ├─ Tien_chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.ipynb
+  |      |     ├─ Tien_chapter16.04-Least-Squares-Regression-in-Python.ipynb
+  |      |     └─ Tien_chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.ipynb
   |      |
   |      ├─ Lecture07
   |      |     ├─ assets              # Images in the handouts
