@@ -63,7 +63,7 @@ root
   |      |     ├─ Tien_chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb
   |      |     ├─ Tien_chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.ipynb
   |      |     ├─ Tien_chapter16.04-Least-Squares-Regression-in-Python.ipynb
-  |      |     └─ Tien_chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.ipynb
+  |      |     └─ Tien_chapter16.05-Least-Squares-Regression-for-Nonlinear-Functions.ipynb
   |      |
   |      ├─ Lecture07
   |      |     ├─ assets              # Images in the handouts
