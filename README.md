@@ -78,7 +78,6 @@ root
   |            ├─ Lecture08.ipynb     # Create data for Lecture08.pdf
   |            └─ Lecture08.pdf       # Lecture 08: Introduction to Neural Networks
   | 
-  ├─ Cooooooooooooooooming soon
   | 
   ├─ Homeworks                        # Released homework assignments
   |
