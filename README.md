@@ -71,6 +71,12 @@ root
   |      |     ├─ main_Lecture07.py   # Main script of Lecture 07
   |      |     └─ Lecture07.ipynb     # Lecture 07: Stochastic Programs, Probability, and Distributions
   |      |
+  |      └─ Lecture08
+  |            ├─ data                # Data folder
+  |            ├─ func.py             # Functions for simluation
+  |            ├─ simOptimizers.py    # Simluation of different optimizers
+  |            ├─ Lecture08.ipynb     # Create data for Lecture08.pdf
+  |            └─ Lecture08.pdf       # Lecture 08: Introduction to Neural Networks
   | 
   ├─ Cooooooooooooooooming soon
   | 
