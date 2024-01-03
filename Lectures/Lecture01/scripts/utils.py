@@ -21,39 +21,36 @@ def buildItems():
     values = [10, 175, 50, 200, 90, 20]
     weights = [1, 10, 2, 20, 9, 4]
     Items =[]
+
     for i in range(len(values)):
         Items.append(Item(names[i], values[i], weights[i]))
+
     return Items
 
 
 def buildManyItems(numItems, maxVal, maxWeight):
     Items = []
+
     for i in range(numItems):
         Items.append(Item(str(i), random.randint(1,maxVal), random.randint(1,maxWeight)))
+
     return Items
-
-
-def getBinaryRep(n, numDigits):
-    result = ""
-    while n > 0:
-        result = str(n%2) + result
-        n = n//2
-    if len(result) > numDigits:
-        raise ValueError("not enough digits")
-    for i in range(numDigits - len(result)):
-        result = "0" + result
-    return result
 
 
 def genPowerset(L):
     powerset = []
+
     for i in range(0, 2**len(L)):
-        binStr = getBinaryRep(i, len(L))
+        binStr = "{:b}".format(i).zfill(len(L))
         subset = []
+
         for j in range(len(L)):
+
             if binStr[j] == "1":
                 subset.append(L[j])
+
         powerset.append(subset)
+
     return powerset
 
 
