@@ -1,4 +1,9 @@
-"""Utility Functions for Lecture 03"""
+"""
+Utility Functions for Lecture 03
+
+Part I: Random Walk
+"""
+
 
 from .objs import Location, Field, MysteriousField
 
@@ -80,14 +85,14 @@ class styleIterator2:
         return color, marker
 
 
-def getTrajectory2(numSteps, dClass, wormholes=None, maxRange=20):
+def getTrajectory2(numSteps, dClass, wormholes={}, maxRange=20):
     locs = []
     d = dClass()
     f = MysteriousField()
     f.addDrunk(d, Location(0,0))
 
     # Add wormholes
-    if wormholes is None:
+    if wormholes == {}:
         f.addWormholes(3, 0, maxRange=maxRange)
         f.addWormholes(-3, 3, maxRange=maxRange)
     else:

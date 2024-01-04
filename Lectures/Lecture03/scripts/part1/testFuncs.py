@@ -1,4 +1,8 @@
-"""Testing Functions for Lecture 03"""
+"""
+Testing Functions for Lecture 03
+
+Part I: Random Walk
+"""
 
 from .utils import simWalks, getFinalLocs, getTrajectory, getTrajectory2, styleIterator, styleIterator2
 from .objs import UsualDrunk, EastWardDrunk, HeatAvoidDrunk
@@ -6,12 +10,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def test1(numTrials=100, dClass=None, name=None):
-    if dClass is None:
+def test1(numTrials=100, dClass=0, name=""):
+    if dClass == 1: 
+        dClass = EastWardDrunk
+    elif dClass == 2:
+        dClass = HeatAvoidDrunk
+    else:
         dClass = UsualDrunk
+
     
-    if name is None:
+    if name == "":
         name = "HoHoChen"
+
 
     print("Run Test #1: Random Walk of Drunkard {}".format(name))
 
@@ -25,11 +35,16 @@ def test1(numTrials=100, dClass=None, name=None):
     print("=="*10, "End of Test 1", "=="*10)
 
 
-def test2(numTrials=100, dClass=None, name=None):
-    if dClass is None:
+def test2(numTrials=100, dClass=0, name=""):
+    if dClass == 1: 
+        dClass = EastWardDrunk
+    elif dClass == 2:
+        dClass = HeatAvoidDrunk
+    else:
         dClass = UsualDrunk
 
-    if name is None:
+
+    if name == "":
         name = "YenYenChen"
 
     print("Run Test #2: Random Walk of Drunkard {}".format(name))
@@ -55,12 +70,11 @@ def test2(numTrials=100, dClass=None, name=None):
     plt.show()
 
 
-def test3(numTrials=100, drunkKinds=None, name=None):
-    if drunkKinds is None:
-        drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
-    
-    if name is None:
+def test3(numTrials=100, name=""):
+    if name == "":
         name = "YingYingChen"
+
+    drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
 
     print("Run Test #3: Random Walk of Drunkard {}".format(name))
 
@@ -75,12 +89,11 @@ def test3(numTrials=100, drunkKinds=None, name=None):
     print("=="*10, "End of Test 3", "=="*10)
 
 
-def test4(numTrials=100, drunkKinds=None, name=None):
-    if drunkKinds is None:
-        drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
-    
-    if name is None:
+def test4(numTrials=100, name=""):  
+    if name == "":
         name = "ChihChihChen"
+
+    drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
 
     print("Run Test #4: Random Walk of Drunkard {}".format(name))
 
@@ -107,15 +120,14 @@ def test4(numTrials=100, drunkKinds=None, name=None):
     plt.show()
 
 
-def test5(numSteps=100, numTrials=100, drunkKinds=None, name=None, style_list=None):
-    if drunkKinds is None:
-        drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
-    
-    if name is None:
+def test5(numSteps=100, numTrials=100, name="", style_list=None):
+    if name == "":
         name = "Peter"
 
     if style_list is None:
         style_list = styleIterator(("k+", "r^", "mo"))
+
+    drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
 
     print("Run Test #5: Where is the Drunkard {}?".format(name))
 
@@ -143,15 +155,14 @@ def test5(numSteps=100, numTrials=100, drunkKinds=None, name=None, style_list=No
     plt.show()
 
 
-def test6(numSteps=100, drunkKinds=None, name=None, style_list=None):
-    if drunkKinds is None:
-        drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
-    
-    if name is None:
+def test6(numSteps=100, name="", style_list=None):
+    if name == "":
         name = "Peter"
 
     if style_list is None:
         style_list = styleIterator2(colors=("k", "r", "m"), markers=(".", "v", "4"))
+
+    drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
 
     print("Run Test #6: Trajectory of the Drunkard {}".format(name))
 
@@ -185,16 +196,14 @@ def test6(numSteps=100, drunkKinds=None, name=None, style_list=None):
     plt.show()
 
 
-def test7(wormholes=None, numSteps=100, drunkKinds=None, name=None, style_list=None):
-    if drunkKinds is None:
-        drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
-    
-    if name is None:
+def test7(wormholes={}, numSteps=100, name="", style_list=None):
+    if name == "":
         name = "Peter"
 
     if style_list is None:
         style_list = styleIterator2(colors=("k", "r", "m"), markers=(".", "v", "4"))
 
+    drunkKinds = (UsualDrunk, HeatAvoidDrunk, EastWardDrunk)
 
     print("Run Test #7: Trajectory of {} in a Mysterious Field".format(name))
 
