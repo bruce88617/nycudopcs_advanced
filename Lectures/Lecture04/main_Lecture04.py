@@ -1,7 +1,7 @@
-"""Tests of Lecture 07"""
+"""Tests of Lecture 04"""
 
 
-from scripts.testFuncs import test1, test2
+from scripts.testFuncs import test1, test2, test3, test4, test5
 import argparse
 
 

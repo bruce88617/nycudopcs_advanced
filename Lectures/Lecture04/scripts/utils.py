@@ -1,8 +1,12 @@
-"""Utility Functions for Lecture 07"""
+"""Utility Functions for Lecture 04"""
 
 
 import random
-from .basicFuncs import stdDev, CV, gaussDist, binCoeff
+from .basicFuncs import stdDev
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 
 
 def rollDie():
@@ -62,45 +66,132 @@ def getAreaEst(numData, numTrials):
     return (curEst, std)
 
 
+def mcIntegral1d(numData, a, b, func):
+    """
+    Parameters
+        a: lower bound of definite integral
+        b: upper bound of definite integral
+        func: target function to calculate
+    """
+    I = 0.
 
-class poker:
-    def __init__(self,):
-        self.refresh()
+    for data in range(numData):
+        x = (b-a)*random.random() + a
+        I += func(x)
+
+    return (b-a)*I/numData
+
+
+def getIntegralEst(numData, numTrials, **kwargs):
+    a = kwargs.get("a", 0)
+    b = kwargs.get("b", 1)
+    func = kwargs.get("func", lambda x: x)
+
+    estimates = []
+
+    for t in range(numTrials):
+        integralGuess = mcIntegral1d(numData, a=a, b=b, func=func)
+        estimates.append(integralGuess)
+
+    std = stdDev(estimates)
+    curEst = sum(estimates)/len(estimates)
+    return (curEst, std)
+
+
+def mcIntegral2d(numData, a, b):
+    """
+    Parameters
+        a1: lower bound of 1st dimension
+        b1: upper bound of 1st dimension
+        a2: lower bound of 2nd dimension
+        b2: upper bound of 2nd dimension
+        func: target function to calculate
+    """
+    I = 0.
+    a1, a2, b1, b2 = a[0], a[1], b[0], b[1]
+    func = lambda x, y, mean, sigma: np.exp(-0.5 * (((x - mean[0])/sigma[0])**2 + ((y - mean[1])/sigma[1])**2)) \
+            * (2 * np.pi * sigma[0] * sigma[1])**(-1)
     
+    for data in range(numData):
+        x = (b1-a1)*random.random() + a1
+        y = (b2-a2)*random.random() + a2
+
+        if np.sqrt(x**2 + y**2) <= 1:
+            I += func(x, y, (0, 0), (1, 1))
+
+    ans = (b1-a1)*(b2-a2)*I/numData
+    return ans
+
+
+def getIntegralEst2d(numData, numTrials, **kwargs):
+    a = kwargs.get("a", (-1, -1))
+    b = kwargs.get("b", (1, 1))
+
+    estimates = []
+
+    for t in range(numTrials):
+        integralGuess = mcIntegral2d(numData, a=a, b=b)
+        estimates.append(integralGuess)
+
+    std = stdDev(estimates)
+    curEst = sum(estimates)/len(estimates)
+    return (curEst, std)
+
+
+# Sampling
+def getBattingData(filepath, **kwargs):
+    minPA = kwargs.get("minPA", 100)
+    data = pd.read_csv(filepath)
+    # PA >= 100
+    data = data[data["PA"] >= minPA]
+    #a BA
+    data["BA"] = data["H"]/data["AB"]
+    return data
+
+
+def makeHist(data, **kwargs):
+    bins = kwargs.get("bins", 20)
+    title = kwargs.get("title", "")
+    xlabel = kwargs.get("xlabel", "")
+    ylabel = kwargs.get("ylabel", "")
+
+    mean, std = np.mean(data), np.std(data)
+
+    fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained", facecolor="w")
+    ax = fig.add_subplot(111)
+    ax.hist(data, bins, label="Mean = {:.03f}\nSTD = {:.03f}".format(mean, std))
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.legend(loc="best")
+    plt.show()
+
+
+def sampleData(data, numSamples):
+    idx = []
+    while len(idx) < numSamples:
+        pick = random.randint(0, len(data)-1)
+        if pick not in idx:
+            idx.append(pick)
     
-    def refresh(self):
-        suits = ("C", "D", "H", "S")
-        self.pool = []
-        for i in suits:
-            for j in range(1, 14):
-                self.pool.append(i+str(j))
+    sampledData = data[idx]
+    makeHist(
+        sampledData, 
+        bins=20, 
+        title="Sample of size {}".format(numSamples),
+        xlabel="Batting Average",
+        ylabel="Number of Batters",
+    )
 
 
-    def draw(self):
-        card = random.choice(self.pool)
-        self.pool.remove(card)
-        return card
-    
-
-    def getPool(self):
-        return self.pool
-    
-
-    def removeCards(self, cards = []):
-        for card in cards:
-            self.pool.remove(card)
-
-
-def runBJ(numTrials):
-    numWins = 0
-
-    pokerPool = poker()
-    # remove C5, C13, D10, H4, H9, S1, S7
-    pokerPool.removeCards(cards=["C5", "C13", "D10", "H4", "H9", "S1", "S7"])
-
-    
-
-
-    return numWins/numTrials
-
+def sampleDataFromUniform(numTrials, numSamples):
+    tightMeans, wideMeans = [], []
+    for t in range(numTrials):
+        sampleTight, sampleWide = [], []
+        for i in range(numSamples):
+            sampleTight.append(random.randint(-3, 3))
+            sampleWide.append(random.randint(-100, 100))
+        tightMeans.append(sum(sampleTight)/len(sampleTight))
+        wideMeans.append(sum(sampleWide)/len(sampleWide))
+    return tightMeans, wideMeans
 
