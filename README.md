@@ -41,9 +41,23 @@ root
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture03.py   # Main script of Lecture 03
-  |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Data Visualization
+  |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Stochastic Programs
   |      |
   |      ├─ Lecture04
+  |      |     ├─ assets              # Images in the handouts
+  |            ├─ data                # Data for Lecture 04
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture04.py   # Main script of Lecture 04
+  |      |     └─ Lecture04.ipynb     # Lecture 04: Monte Carlo Method, Sampling, and Confidence Intervals
+  |      |
+  |      ├─ Lecture05
+  |      |     ├─ assets              # Images in the handouts
+  |            ├─ data                # Data for Lecture 05
+  |      |     ├─ scripts             # Scripts in the handouts
+  |      |     ├─ main_Lecture05.py   # Main script of Lecture 05
+  |      |     └─ Lecture05.ipynb     # Lecture 05: Randomized Trials and Hypothesis Checking
+  |      |
+  |      ├─ Lecture06
   |      |     ├─ 1_Tien_chapter14.01-Basics-of-Linear-Algebra.ipynb
   |      |     ├─ 2_Tien_chapter14.02-Linear-Transformations.ipynb
   |      |     ├─ 3_Tien_chapter14.03-Systems-of-Linear-Equations.ipynb
@@ -51,35 +65,29 @@ root
   |      |     ├─ 5_Tien_chapter14.04(2)-Solutions-to-Systems-of-Linear-Equations.ipynb
   |      |     └─ 6_Tien_chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.ipynb
   |      |
-  |      ├─ Lecture05
+  |      ├─ Lecture07
   |      |     ├─ Tien_chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.ipynb
   |      |     ├─ Tien_chapter15.02-The-Power-Method.ipynb
   |      |     ├─ Tien_chapter15.03-The-QR-Method.ipynb
   |      |     └─ Tien_chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.ipynb
   |      |
-  |      ├─ Lecture06
-  |      |     ├─ Tien_chapter16.00-Least-Squares-Regression.ipynb
-  |      |     ├─ Tien_chapter16.01-Least-Squares-Regression-Problem-Statement.ipynb
-  |      |     ├─ Tien_chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb
-  |      |     ├─ Tien_chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.ipynb
-  |      |     ├─ Tien_chapter16.04-Least-Squares-Regression-in-Python.ipynb
-  |      |     └─ Tien_chapter16.05-Least-Squares-Regression-for-Nonlinear-Functions.ipynb
-  |      |
-  |      ├─ Lecture07
-  |      |     ├─ assets              # Images in the handouts
-  |      |     ├─ scripts             # Scripts in the handouts
-  |      |     ├─ main_Lecture07.py   # Main script of Lecture 07
-  |      |     └─ Lecture07.ipynb     # Lecture 07: Stochastic Programs, Probability, and Distributions
-  |      |
   |      └─ Lecture08
-  |            ├─ data                # Data folder
-  |            ├─ func.py             # Functions for simluation
-  |            ├─ simOptimizers.py    # Simluation of different optimizers
-  |            ├─ Lecture08.ipynb     # Create data for Lecture08.pdf
-  |            └─ Lecture08.pdf       # Lecture 08: Introduction to Neural Networks
+  |            ├─ Tien_chapter16.00-Least-Squares-Regression.ipynb
+  |            ├─ Tien_chapter16.01-Least-Squares-Regression-Problem-Statement.ipynb
+  |            ├─ Tien_chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb
+  |            ├─ Tien_chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.ipynb
+  |            ├─ Tien_chapter16.04-Least-Squares-Regression-in-Python.ipynb
+  |            └─ Tien_chapter16.05-Least-Squares-Regression-for-Nonlinear-Functions.ipynb
+  |      
+  |
+  ├─ Archives                         # Archives
+  |      ├─ data                      # Data folder
+  |      ├─ func.py                   # Functions for simluation
+  |      ├─ simOptimizers.py          # Simluation of different optimizers
+  |      ├─ Lecture08.ipynb           # Create data for Lecture08.pdf
+  |      └─ Lecture08.pdf             # Lecture 08: Introduction to Neural Networks
   | 
   | 
-  ├─ Homeworks                        # Released homework assignments
   |
   └─ Readme.md 
 ```
