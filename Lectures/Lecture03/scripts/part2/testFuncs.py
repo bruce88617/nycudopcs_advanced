@@ -1,4 +1,9 @@
-"""Testing Functions for Lecture 07"""
+"""
+Testing Functions for Lecture 03
+
+Part II: Stochastic Programs
+"""
+
 
 from .utils import rollSim, flipSim, flip, makePlot, labelPlot
 from .basicFuncs import stdDev, CV, gaussDist, binCoeff
@@ -16,7 +21,7 @@ def test2(numFlipsPerTrial=10, numTrials=10, numExps=5):
     print("Flipping a fair coin {} times".format(numFlipsPerTrial))
     for e in range(numExps):
         _, m, _ = flipSim(numFlipsPerTrial=numFlipsPerTrial, numTrials=numTrials)
-        print("    {} Experiment: Mean = {}".format(e+1, m))
+        print("    {} Experiment: Mean = {:.03f}".format(e+1, m))
 
 
 def test3(numFlipsPerTrial=10, numTrials=100):
@@ -63,7 +68,7 @@ def test4(minExp=4, maxExp=20):
         except ZeroDivisionError:
             continue
     
-    fig = plt.figure(figsize=(8,4), dpi=100, layout="constrained")
+    fig = plt.figure(figsize=(10,4), dpi=100, layout="constrained")
     ax1 = fig.add_subplot(121)
     ax1.plot(xAxis, diffs, 'ko')
     ax1.plot(xAxis, diffs, 'k')
@@ -99,7 +104,7 @@ def test5(minExp=4, maxExp=20, numTrials=20):
         ratiosSDs.append(stdDev(ratios))
         diffsSDs.append(stdDev(diffs))
         
-    fig = plt.figure(figsize=(8,8), dpi=100, layout="constrained")
+    fig = plt.figure(figsize=(12,6), dpi=100, layout="constrained")
     ax1 = fig.add_subplot(221)
     makePlot(ax1, xVals=xAxis, yVals=ratiosMeans, title="Mean Heads/Tails Ratios ({} Trials)".format(numTrials), 
              xLabel="Number of Flips", yLabel="Mean Heads/Tails", style='ko', logX=True)

@@ -1,6 +1,12 @@
-"""Objects for Lecture 03"""
+"""
+Objects for Lecture 03
+
+Part I: Random Walk
+"""
+
 
 import random
+
 
 class Location:
     def __init__(self, x, y):

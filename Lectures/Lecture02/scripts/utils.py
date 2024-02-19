@@ -1,6 +1,8 @@
 """Utility Functions for Lecture 02"""
 
-from .objs import Node, Edge, WeightedEdge, Digraph
+
+from scripts.objs import Node, Edge, WeightedEdge, Digraph, Graph
+
 
 def printPath(path):
     result = ""
@@ -9,6 +11,7 @@ def printPath(path):
         if i != len(path)-1:
             result += "->"
     return result
+
 
 def shortestPath(paths, graph):
     shortest = None
@@ -115,3 +118,36 @@ def buildGraph3():
     g.addEdge(WeightedEdge(nodes[6], nodes[7], 20))
 
     return g
+
+
+def buildGraph4():
+    nodes = []
+    names = ["A", "B", "C", "D", "E", "F", "G", "H"]
+    times = [0, 5, 17, 14, 8, 13, 9, 7]
+    g = Graph()
+
+    for i in range(len(names)):
+        nodes.append(Node(str(names[i]), times[i]))
+
+    for n in nodes:
+        g.addNode(n)
+
+    g.addEdge(WeightedEdge(nodes[0], nodes[1], 5))
+    g.addEdge(WeightedEdge(nodes[0], nodes[4], 18))
+    g.addEdge(WeightedEdge(nodes[0], nodes[6], 49))
+    g.addEdge(WeightedEdge(nodes[1], nodes[2], 15))
+    g.addEdge(WeightedEdge(nodes[1], nodes[3], 12))
+    g.addEdge(WeightedEdge(nodes[1], nodes[4], 4))
+    g.addEdge(WeightedEdge(nodes[2], nodes[7], 9))
+    g.addEdge(WeightedEdge(nodes[3], nodes[2], 87))
+    g.addEdge(WeightedEdge(nodes[3], nodes[7], 11))
+    g.addEdge(WeightedEdge(nodes[4], nodes[3], 17))
+    g.addEdge(WeightedEdge(nodes[4], nodes[5], 56))
+    g.addEdge(WeightedEdge(nodes[5], nodes[3], 1))
+    g.addEdge(WeightedEdge(nodes[5], nodes[7], 13))
+    g.addEdge(WeightedEdge(nodes[6], nodes[4], 5))
+    g.addEdge(WeightedEdge(nodes[6], nodes[5], 4))
+    g.addEdge(WeightedEdge(nodes[6], nodes[7], 20))
+
+    return g
+

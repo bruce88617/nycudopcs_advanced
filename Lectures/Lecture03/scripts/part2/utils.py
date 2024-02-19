@@ -1,7 +1,14 @@
-"""Utility Functions for Lecture 07"""
+"""
+Utility Functions for Lecture 03
+
+Part II: Stochastic Programs
+"""
+
 
 import random
-from .basicFuncs import stdDev
+import scipy
+from .basicFuncs import stdDev, gaussDist
+
 
 def rollDie():
     return random.choice((1,2,3,4,5,6))
@@ -56,7 +63,15 @@ def labelPlot(ax, numFlips, numTrials, mean, std):
     ax.set_ylabel("Number of Trials")
     ax.annotate("Mean = {:.04f}\nSTD = {:.04f}".format(mean, std), size="x-large", xycoords="axes fraction", xy=(0.6,0.8))
 
-    
+
+def checkEmpirical(numTrials):
+    for t in range(numTrials):
+        mu = random.randint(-10,10)
+        sigma = random.randint(1,10)
+        print("Normal distribution with (\u03BC, \u03C3) = ({}, {})".format(mu, sigma))
+        for numStd in (1, 2, 3):
+            area = scipy.integrate.quad(gaussDist, mu-numStd*sigma, mu+numStd*sigma, (mu, sigma))[0]
+            print("    Area within {} std = {:.04f}".format(numStd, area))
 
 
 

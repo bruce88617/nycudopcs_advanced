@@ -1,7 +1,7 @@
 """Test Functions for Lecture 01"""
 
-from .utils import buildItems, value, weightInverse, density, genPowerset, buildManyItems
-from .funcs import greedy, chooseBest, searchDT, fastSearchDT
+from scripts.utils import buildItems, value, weightInverse, density, genPowerset, buildManyItems
+from scripts.funcs import greedy, chooseBest, searchDT, fastSearchDT
 
 
 def test1(availWeight=20):

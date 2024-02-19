@@ -44,6 +44,7 @@ class Digraph:
         self.nodes = []
         self.edges = {}
         self.weights = {}
+
     
     def addNode(self, node):
         if node in self.nodes:
@@ -52,6 +53,7 @@ class Digraph:
             self.nodes.append(node)
             self.edges[node] = []
             self.weights[node] = {}
+
     
     def addEdge(self, edge):
         src = edge.getSource()
@@ -64,20 +66,29 @@ class Digraph:
             self.weights[src][dest] = wt
         else:
             self.weights[src][dest] = 1
+
     
     def childrenOf(self, node):
         return self.edges[node]
     
+    
     def hasNode(self, node):
         return node in self.nodes
+    
     
     def getNode(self, node_idx):
         if not self.nodes[node_idx] in self.nodes:
             raise ValueError("Node is not in graph, idiot")
         return self.nodes[node_idx]
+    
 
     def getWeight(self, src, dest):
         return self.weights[src][dest]
+    
+
+    def getAllNodes(self,):
+        return self.nodes
+    
     
     def __str__(self):
         result = ""
@@ -85,6 +96,8 @@ class Digraph:
             for dest in self.edges[src]:
                 result += "{} -> {}\n".format(src.getName(), dest.getName())
         return result[:-1]
+    
+
 
 class Graph(Digraph):
     def addEdge(self, edge):

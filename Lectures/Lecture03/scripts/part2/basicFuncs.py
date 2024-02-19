@@ -1,6 +1,12 @@
-"""Basic Functions for Lecture 07"""
+"""
+Basic Functions for Lecture 03
+
+Part II: Stochastic Programs
+"""
+
 
 import numpy as np
+
 
 def variance(X):
     mean = sum(X)/len(X)
@@ -8,6 +14,7 @@ def variance(X):
     for x in X:
         tot += (x-mean)**2
     return tot/len(X)
+
 
 def stdDev(X):
     return variance(X)**0.5
