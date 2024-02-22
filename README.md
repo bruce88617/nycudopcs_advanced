@@ -13,6 +13,13 @@
 
 **All link in the lectures is optimized for reading in VS Code, not for GitHub.**
 
+## 112B 小木屋鬆餅指數
+
+|#|Date|Person|
+|:--:|:--:|:--:|
+|1|2024.2.22|112514027|
+
+
 ## How to update your local repo
 
 ```
