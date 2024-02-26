@@ -3,11 +3,12 @@
 import numpy as np
 import random
 from scipy.integrate import quad
+from scipy.special import gamma
 
-def createData4example():
+def createData4example(numSamples=100):
     treatmeantDist = (173., 4.)
     controlDist = (170., 5.5)
-    sampleSize = 100
+    sampleSize = numSamples
 
     treatmeantHeights, controlHeights = [], []
 
@@ -28,43 +29,49 @@ def gaussDist(x=None, mu=0, sigma=1, N=100):
     return coeff*np.exp(-((x-mu)**2)/(2*sigma**2))
 
 
-def calProb(x, mu=0, sigma=1):
+def calProb(x, mu=0, sigma=1, symmetric=True):
     coeff = 1/(sigma*np.sqrt(2*np.pi))
     func = lambda x: coeff*np.exp(-((x-mu)**2)/(2*sigma**2))
-    prob = quad(func, 0, x)[0]
-    return (0.5 - prob)*2
+    if symmetric:
+        prob = quad(func, 0, np.abs(x))[0]
+        result = (0.5 - prob)*2
+    else:
+        prob = quad(func, -np.inf, x)[0]
+        result = 1 - prob
+    return result
 
 
+def student_t(x, nu=1):
+    const = gamma((nu+1)/2) / (np.sqrt(np.pi*nu) * gamma(nu/2))
+    return const * (1 + x**2/nu)**(-(nu+1)/2)
 
 
+def calTProb(x, nu, symmetric=True):
+    func = lambda x, nu: student_t(x=x, nu=nu)
+    if symmetric:
+        prob = quad(func, 0, np.abs(x), args=(nu,))[0]
+        result = (0.5 - prob)*2
+    else:
+        prob = quad(func, -np.inf, x, args=(nu,))[0]
+        result = 1 - prob
+    return result
 
-###########################################
-###########################################
-"""Functions for the figures in lectures"""
-import matplotlib.pyplot as plt
 
+def sampleNormal(numTrials=10000, numSamples=(2**2, 2**8)):
+    v1, v2 = [], []
 
+    for t in range(numTrials):
+        sample1, sample2 = [], []
+        for n1 in range(numSamples[0]):
+            sample1.append(random.gauss(0, 1))
+        for n2 in range(numSamples[1]):
+            sample2.append(random.gauss(0, 1))
+        
+        # Calculate variance
+        v1.append(np.var(np.array(sample1)))
+        v2.append(np.var(np.array(sample2)))
 
-zValue = (mTreat - 170) / (5.5/np.sqrt(100))
-pValue = calProb(zValue)
+    v1, v2 = np.array(v1), np.array(v2)
 
-print("z-value = {:.03f}".format(zValue))
-print("Probability = {:.05f}".format(pValue))
+    return v1, v2
 
-x = np.linspace(-7, 7, 101)
-x2 = np.linspace(-zValue, zValue, 101)
-
-fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained", facecolor="w")
-ax1 = fig.add_subplot(111)
-ax1.plot(x, gaussDist(x), 'b', label="Mean = {}\nSTD = {}".format(0, 1))
-ax1.vlines([-zValue, zValue], ymin=0, ymax=0.5, colors='r', linestyles='dashed', label="Z-value = {:.03f}".format(zValue))
-ax1.plot(zValue, pValue+0.01, 'rv', markersize=5, label="Probability = {:.05f}".format(pValue))
-ax1.fill_between(x2, y1=gaussDist(x2), y2=0, color='g', alpha=0.2)
-ax1.set_title("Normalized Distribution")
-ax1.set_xlabel("Z")
-ax1.set_ylabel("Probability")
-ax1.set_xlim([-7, 7])
-ax1.set_ylim([0, 0.5])
-ax1.legend(loc=2)    # upper left
-    
-plt.show()
