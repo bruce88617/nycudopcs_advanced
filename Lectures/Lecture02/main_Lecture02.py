@@ -1,7 +1,7 @@
 """Tests of Lecture 02"""
 
 
-from scripts.testFuncs import test1, test2, test3, test4, test5, test6
+from scripts.testFuncs import test1, test2, test3, test4, test5, test6, test7, test8
 import argparse
 
 
@@ -46,12 +46,12 @@ if __name__ == "__main__":
     
     elif opt.num == 7:
         print("Run Test #{}".format(opt.num))
-        test6(start_idx=opt.start, end_idx=opt.end)
+        test7(start_idx=opt.start, end_idx=opt.end)
 
 
     elif opt.num == 8:
         print("Run Test #{}".format(opt.num))
-        test6(start_idx=opt.start, end_idx=opt.end)
+        test8(start_idx=opt.start, end_idx=opt.end)
 
 
     else:
