@@ -97,8 +97,8 @@ def test5(minExp=4, maxExp=20, numTrials=20):
         for t in range(numTrials):
             numHeads, numTails = flip(numFlips)
             ratios.append(numHeads/numTails)
-            # diffs.append(abs(numHeads-numTails))
-            diffs.append((numHeads-numTails))
+            diffs.append(abs(numHeads-numTails))
+            # diffs.append((numHeads-numTails))
         ratiosMeans.append(sum(ratios)/numTrials)
         diffsMeans.append(sum(diffs)/numTrials)
         ratiosSDs.append(stdDev(ratios))
@@ -110,13 +110,13 @@ def test5(minExp=4, maxExp=20, numTrials=20):
              xLabel="Number of Flips", yLabel="Mean Heads/Tails", style='ko', logX=True)
     ax2 = fig.add_subplot(222)
     makePlot(ax2, xVals=xAxis, yVals=ratiosSDs, title="SD Heads/Tails Ratios ({} Trials)".format(numTrials), 
-             xLabel="Number of Flips", yLabel="Standard Deviation", style='ko', logX=True, logY=True)
+             xLabel="Number of Flips", yLabel="Standard Deviation", style='ko', logX=True, logY=False)
     ax3 = fig.add_subplot(223)
     makePlot(ax3, xVals=xAxis, yVals=diffsMeans, title="Mean Differences ({} Trials)".format(numTrials), 
              xLabel="Number of Flips", yLabel="Mean Differences", style='ko', logX=True, logY=False)
     ax4 = fig.add_subplot(224)
     makePlot(ax4, xVals=xAxis, yVals=diffsSDs, title="SD Differences ({} Trials)".format(numTrials), 
-             xLabel="Number of Flips", yLabel="Standard Deviation", style='ko', logX=True, logY=True)
+             xLabel="Number of Flips", yLabel="Standard Deviation", style='ko', logX=True, logY=False)
     
     plt.show()
 
@@ -131,8 +131,8 @@ def test6(minExp=4, maxExp=20, numTrials=20):
         for t in range(numTrials):
             numHeads, numTails = flip(numFlips)
             ratios.append(numHeads/numTails)
-            # diffs.append(abs(numHeads-numTails))
-            diffs.append((numHeads-numTails))
+            diffs.append(abs(numHeads-numTails))
+            # diffs.append((numHeads-numTails))
         ratiosMeans.append(sum(ratios)/numTrials)
         diffsMeans.append(sum(diffs)/numTrials)
         ratiosSDs.append(stdDev(ratios))
