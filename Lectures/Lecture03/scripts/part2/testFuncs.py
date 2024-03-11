@@ -231,7 +231,7 @@ def test9(minExp=3, maxExp=10, numTrials=100):
         means.append(mean)
         stds.append(std)
 
-    fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained")
+    fig = plt.figure(figsize=(4,3), dpi=100, layout="constrained")
     ax1 = fig.add_subplot(111)
     ax1.errorbar(xVals, means, yerr=1.96*np.array(stds))
     ax1.set_xscale("log")
@@ -249,7 +249,7 @@ def test10(minExp=2, maxExp=100, p=1/6, times=2):
         xVals.append(i)
         results.append(prob)
     
-    fig = plt.figure(dpi=100, layout="constrained")
+    fig = plt.figure(figsize=(4,3), dpi=100, layout="constrained")
     ax = fig.add_subplot(111)
     ax.plot(xVals, results)
     ax.set_title("Probability of Rolling Two 3's")
@@ -261,7 +261,26 @@ def test10(minExp=2, maxExp=100, p=1/6, times=2):
     plt.show()
 
 
+def test11(n=1e5, p=1e-2, steps=1e3):
+    xVals, numRemaining = [], []
 
+    for t in range(int(steps)):
+        xVals.append(t)
+        numRemaining.append(n * (1-p)**t)
+
+    xVals, numRemaining = np.array(xVals), np.array(numRemaining)
+    
+    fig = plt.figure(figsize=(4,3), dpi=100, layout="constrained")
+    ax = fig.add_subplot(111)
+    ax.plot(xVals, numRemaining, 'b')
+    ax.set_title("Clearance of Drug")
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Molecules Remaining")
+    ax.set_xlim(xVals[0], xVals[-1])
+    ax.set_ylim(0, n)
+
+    plt.show()
+    
 
 
 
