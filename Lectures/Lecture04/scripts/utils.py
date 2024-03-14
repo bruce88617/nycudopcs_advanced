@@ -157,7 +157,7 @@ def makeHist(data, **kwargs):
 
     mean, std = np.mean(data), np.std(data)
 
-    fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained", facecolor="w")
+    fig = plt.figure(figsize=(4,3), dpi=100, layout="constrained", facecolor="w")
     ax = fig.add_subplot(111)
     ax.hist(data, bins, label="Mean = {:.03f}\nSTD = {:.03f}".format(mean, std))
     ax.set_title(title)

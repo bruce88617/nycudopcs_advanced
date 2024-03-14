@@ -20,7 +20,12 @@ def test1():
     fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained", facecolor="w")
     
     ax1 = fig.add_subplot(111)
-    ax1.plot(xAxis, p, 'ko', label="Experimental results")
+    ax1.plot(
+        xAxis,
+        p, 
+        'ko', 
+        label="Experimental results\nEstimated probability = {:.04f}".format(p[-1]),
+    )
     ax1.set_title("Simulation of Pascal's Problem")
     ax1.set_xlabel("Number of Trials")
     ax1.set_ylabel("Winning Probability")
@@ -34,7 +39,7 @@ def test1():
         xmax = xMax, 
         colors = 'r', 
         alpha = 0.5,
-        label = "{:.04f}".format(1-(35/36)**24)
+        label = "Theoretical value = {:.04f}".format(1-(35/36)**24)
     )
     ax1.legend(loc="best")
     
@@ -55,7 +60,7 @@ def test2(numTrials=100, numData=2**15, toPrint=False):
         yEsts.append(curEst)
 
         if toPrint:
-            print("Est. = {:.05f}, STD = {:.05f}, numData = {}".format(curEst, std, val))
+            print("Est. = {:.06f}, STD = {:.06f}, numData = {}".format(curEst, std, val))
     
     fig = plt.figure(figsize=(5,4), dpi=100, layout="constrained", facecolor="w")
     
@@ -65,7 +70,12 @@ def test2(numTrials=100, numData=2**15, toPrint=False):
         y=yEsts,
         yerr=yStds,
     )
-    ax1.plot(xAxis, yEsts, 'ko', label="Estimations")
+    ax1.plot(
+        xAxis, 
+        yEsts, 
+        'ko', 
+        label="Estimations\nEstimated value = {:.06f}".format(yEsts[-1]),
+    )
     ax1.set_title(r"Simulation of $\pi$ Estimation")
     ax1.set_xlabel("Number of Data")
     ax1.set_ylabel("Estimated Value")
@@ -78,7 +88,7 @@ def test2(numTrials=100, numData=2**15, toPrint=False):
         xmax = xMax, 
         colors = 'r', 
         alpha = 0.5,
-        label = "{:.06f}".format(np.pi)
+        label = "Theoretical value = {:.06f}".format(np.pi)
     )
     ax1.legend(loc="best")
     
@@ -109,7 +119,12 @@ def test3(numTrials=100, numData=2**15, toPrint=False):
         y=yEsts,
         yerr=yStds,
     )
-    ax1.plot(xAxis, yEsts, 'ko', label="Estimations")
+    ax1.plot(
+        xAxis, 
+        yEsts, 
+        'ko', 
+        label="Estimations\nEstimated value = {:.06f}".format(yEsts[-1])
+    )
     ax1.set_title("Simulation of Area Estimation")
     ax1.set_xlabel("Number of Data")
     ax1.set_ylabel("Estimated Value")
@@ -122,7 +137,7 @@ def test3(numTrials=100, numData=2**15, toPrint=False):
         xmax = xMax, 
         colors = 'r', 
         alpha = 0.5,
-        label = "{:.06f}".format(np.pi/2 - 1)
+        label = "Analytical value = {:.06f}".format(np.pi/2 - 1)
     )
     ax1.legend(loc="best")
     
@@ -163,7 +178,12 @@ def test4(numTrials=100, numData=2**15, **kwargs):
         y=yEsts,
         yerr=yStds,
     )
-    ax1.plot(xAxis, yEsts, 'ko', label="Estimations")
+    ax1.plot(
+        xAxis, 
+        yEsts, 
+        'ko', 
+        label="Estimations\nEstimated value = {:.05f}".format(yEsts[-1]),
+    )
     ax1.set_title("Simulation of Monte Carlo Integration")
     ax1.set_xlabel("Number of Data")
     ax1.set_ylabel("Estimated Value")
@@ -176,7 +196,7 @@ def test4(numTrials=100, numData=2**15, **kwargs):
         xmax = xMax, 
         colors = 'r', 
         alpha = 0.5,
-        label = "{:.05f}".format(2.7025)
+        label = "Analytical value = {:.05f}".format(2.7025)
     )
     ax1.legend(loc="best")
     
@@ -250,8 +270,8 @@ def test6(numSamples=(20, 100, 200)):
         sampleData(ba_2023, numSamples=num)
 
 
-def test7(numSamples=40):
-    tightMeans, wideMeans = sampleDataFromUniform(1000, numSamples=numSamples)
+def test7(numSamples=40, numTrials=1000):
+    tightMeans, wideMeans = sampleDataFromUniform(numTrials=numTrials, numSamples=numSamples)
 
     fig1 = plt.figure(1, figsize=(10,4), dpi=100, layout="constrained")
 
