@@ -278,14 +278,26 @@ def test7(numSamples=40, numTrials=1000):
     ax1 = fig1.add_subplot(121)
     ax1.plot(wideMeans, 'g*', label='STD = {:.02f}'.format(np.sqrt(200**2/12)))
     ax1.plot(tightMeans, 'bo', label='STD = {:.02f}'.format(np.sqrt(6**2/12)))
-    ax1.set_xlabel('Sample Number')
+    ax1.set_xlabel('Index of Trial')
     ax1.set_ylabel('Sample Mean')
     ax1.set_title('Means of Sample Size {}'.format(numSamples))
     ax1.legend()
 
     ax2 = fig1.add_subplot(122)
-    ax2.hist(wideMeans, bins=20, color='g', alpha=0.2, label='STD = {:.02f}'.format(np.sqrt(200**2/12)))
-    ax2.hist(tightMeans, bins=20, color='b', alpha=0.2, label='STD = {:.02f}'.format(np.sqrt(6**2/12)))
+    ax2.hist(
+        wideMeans, 
+        bins=20, 
+        color='g', 
+        alpha=0.2, 
+        label='Mean = {:.02f}, STD = {:.02f}'.format(np.mean(wideMeans), np.std(wideMeans))
+    )
+    ax2.hist(
+        tightMeans, 
+        bins=20, 
+        color='b', 
+        alpha=0.2, 
+        label='Mean = {:.02f}, STD = {:.02f}'.format(np.mean(tightMeans), np.std(tightMeans))
+    )
     ax2.set_title('Distribution of Sample Means')
     ax2.set_xlabel('Sample Mean')
     ax2.set_ylabel('Frequency of Occurence')
