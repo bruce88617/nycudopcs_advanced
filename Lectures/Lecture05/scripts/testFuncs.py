@@ -60,6 +60,8 @@ def test2(numSamples=10):
 
     treatmentHeights, controlHeights = createData4example(numSamples=numSamples)
     mTreat, sTreat = np.mean(treatmentHeights), np.std(treatmentHeights)
+    mControl, sControl = np.mean(controlHeights), np.std(controlHeights)
+    print("sTreat = {:.02f}, sControl = {:.02f}".format(sTreat, sControl))
     zValue, pValue = run_1sample_Z_Test(
         data = treatmentHeights, 
         target = 170,
