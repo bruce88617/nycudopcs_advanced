@@ -1,7 +1,7 @@
 """Search Algorithms for Lecture 02"""
 
 
-from scripts.utils import printPath
+from scripts.part2.utils import printPath
 
 
 def DFS(graph, start, end, path, toPrint=False, foundPath=[]):
