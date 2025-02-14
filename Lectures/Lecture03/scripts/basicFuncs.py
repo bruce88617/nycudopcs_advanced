@@ -1,7 +1,5 @@
 """
-Basic Functions for Lecture 02
-
-Part II: Stochastic Programs
+Basic Functions for Lecture 03
 """
 
 
