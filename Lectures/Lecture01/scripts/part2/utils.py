@@ -1,7 +1,7 @@
 """Utility Functions for Lecture 02"""
 
 
-from scripts.objs import Node, Edge, WeightedEdge, Digraph, Graph
+from scripts.part2.objs import Node, Edge, WeightedEdge, Digraph, Graph
 
 
 def printPath(path):
