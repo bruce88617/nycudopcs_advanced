@@ -42,30 +42,30 @@ root
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture01.py   # Main script of Lecture 01
-  |      |     └─ Lecture01.ipynb     # Lecture 01: Knapsack Problems and Dynamic Programming
+  |      |     └─ Lecture01.ipynb     # Lecture 01: Knapsack Problems, Dynamic Programming, and Graph Optimization Problems
   |      |
   |      ├─ Lecture02
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture02.py   # Main script of Lecture 02
-  |      |     └─ Lecture02.ipynb     # Lecture 02: Graph Theory and Graph Optimization Problems
+  |      |     └─ Lecture02.ipynb     # Lecture 02: Random Walks and Stochastic Programs
   |      |
   |      ├─ Lecture03
   |      |     ├─ assets              # Images in the handouts
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture03.py   # Main script of Lecture 03
-  |      |     └─ Lecture03.ipynb     # Lecture 03: Random Walks and Stochastic Programs
+  |      |     └─ Lecture03.ipynb     # Lecture 03: Limit Theorems and Monte Carlo Method
   |      |
   |      ├─ Lecture04
   |      |     ├─ assets              # Images in the handouts
-  |            ├─ data                # Data for Lecture 04
+  |      |     ├─ data                # Data for Lecture 04
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture04.py   # Main script of Lecture 04
-  |      |     └─ Lecture04.ipynb     # Lecture 04: Monte Carlo Method, Sampling, and Confidence Intervals
+  |      |     └─ Lecture04.ipynb     # Lecture 04: Introduction to Statistical Inference
   |      |
   |      ├─ Lecture05
   |      |     ├─ assets              # Images in the handouts
-  |            ├─ data                # Data for Lecture 05
+  |      |     ├─ data                # Data for Lecture 05
   |      |     ├─ scripts             # Scripts in the handouts
   |      |     ├─ main_Lecture05.py   # Main script of Lecture 05
   |      |     └─ Lecture05.ipynb     # Lecture 05: Randomized Trials and Hypothesis Checking
