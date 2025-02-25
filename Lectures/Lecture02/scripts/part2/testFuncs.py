@@ -217,7 +217,7 @@ def test9(numTrials=1000, mu=0, sigma=1):
     result = rng.normal(loc=mu, scale=sigma, size=numTrials)
     # Theoretical value
     x = np.linspace(-4*sigma, 4*sigma, 100)
-    f_x = (2*np.pi*sigma**2)**(-0.5) * np.exp(-((x-mu)/sigma)**2)
+    f_x = (2*np.pi*sigma**2)**(-0.5) * np.exp(-(x-mu)**2/(2*sigma**2))
 
     fig = plt.figure(1, figsize=(5,4), dpi=100, layout="constrained")
     ax = fig.add_subplot(111)
