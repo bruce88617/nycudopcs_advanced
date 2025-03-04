@@ -29,7 +29,7 @@ def test2(numTrials=1000, p=0.5):
         ylabel="Fraction of Success",
         xlim=[0,numTrials],
         ylim=[0,1],
-        title="Bernoulli({:.1f})".format(p),
+        title="Bernoulli({:.2f})".format(p),
     )
     plt.show()
 
@@ -55,8 +55,8 @@ def test3(numTrials=1000, p=0.5):
         xlabel=r"$k$",
         ylabel=r"$P_X(k)$",
         xlim=[0, max(k)],
-        ylim=[0, 0.5],
-        title="Geometric({:.1f})".format(p),
+        ylim=[0, max(P_k)*1.2],
+        title="Geometric({:.2f})".format(p),
     )
     ax.legend()
     plt.show()
@@ -75,7 +75,7 @@ def test4(numTrials=1000, n=10, p=0.2):
     ax.plot(k, P_k, label="Theoretical mean = {:.2f}".format(n*p))
     count, bins, _ = ax.hist(
         result, 
-        bins=50 if numTrials>1000 else numTrials//100, 
+        bins=n+1, 
         density=True, 
         label="Histogram of samples, sample mean = {:.2f}".format(np.mean(result)),
     )
@@ -83,8 +83,8 @@ def test4(numTrials=1000, n=10, p=0.2):
         xlabel=r"$k$",
         ylabel=r"$P_X(k)$",
         xlim=[0, max(k)],
-        ylim=[0, 0.5],
-        title="Binomial({:d}, {:.1f})".format(n, p),
+        ylim=[0, max(P_k)*1.2],
+        title="Binomial({:d}, {:.2f})".format(n, p),
     )
     ax.legend()
     plt.show()
